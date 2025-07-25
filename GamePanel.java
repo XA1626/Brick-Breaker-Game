@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     public GamePanel() {
         setPreferredSize(new Dimension(600, 600));
-        setBackground(Color.BLACK);
+        setBackground(Color.WHITE);
         addKeyListener(this);
         setFocusable(true);
         
@@ -28,8 +28,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     private void createBricks() {
         bricks = new Brick[ROWS][COLS];
-        Color[] colors = {Color.RED, Color.ORANGE, Color.GREEN, Color.YELLOW};
-        
+        Color[] colors = {Color.PINK, Color.CYAN, Color.MAGENTA, Color.YELLOW};
+
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
                 bricks[i][j] = new Brick(j * 60, i * 30 + 50, colors[i]);

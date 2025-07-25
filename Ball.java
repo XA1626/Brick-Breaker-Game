@@ -19,12 +19,15 @@ public class Ball {
 
     public void checkCollisions(int panelWidth, int panelHeight, Paddle paddle) {
         // Wall collisions
-        if (x <= 0 || x >= panelWidth - diameter) dx = -dx;
-        if (y <= 0) dy = -dy;
-        
+        if (x <= 0 || x >= panelWidth - diameter)
+            dx = -dx;
+        if (y <= 0)
+            dy = -dy;
+
         // Game over
-        if (y >= panelHeight - diameter) inGame = false;
-        
+        if (y >= panelHeight - diameter)
+            inGame = false;
+
         // Paddle collision
         if (getBounds().intersects(paddle.getBounds())) {
             dy = -Math.abs(dy); // Always bounce up
@@ -46,7 +49,7 @@ public class Ball {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(Color.MAGENTA);
         g.fillOval(x, y, diameter, diameter);
     }
 
