@@ -46,9 +46,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-    // Draw solid black background for high-contrast highlighter look
-    g.setColor(Color.BLACK);
-    g.fillRect(0, 0, getWidth(), getHeight());
+        // Draw solid black background for high-contrast highlighter look
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getHeight());
 
         // Draw game objects
         paddle.draw(g);
