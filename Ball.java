@@ -49,8 +49,18 @@ public class Ball {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.MAGENTA);
-        g.fillOval(x, y, diameter, diameter);
+        Graphics2D g2d = (Graphics2D) g.create();
+        // Draw shadow
+        g2d.setColor(new Color(0, 0, 0, 80));
+        g2d.fillOval(x + 4, y + 4, diameter, diameter);
+        // Draw ball with radial gradient
+        GradientPaint gp = new GradientPaint(x, y, new Color(255, 255, 255), x + diameter, y + diameter,
+                new Color(255, 80, 180));
+        g2d.setPaint(gp);
+        g2d.fillOval(x, y, diameter, diameter);
+        g2d.setColor(new Color(255, 80, 180));
+        g2d.drawOval(x, y, diameter, diameter);
+        g2d.dispose();
     }
 
     public boolean isInGame() {
