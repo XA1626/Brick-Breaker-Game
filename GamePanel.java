@@ -28,8 +28,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     private void createBricks() {
         bricks = new Brick[ROWS][COLS];
-        Color[] colors = { Color.PINK, Color.CYAN, Color.MAGENTA, Color.YELLOW };
-
+        // Highlighter colors: neon yellow, neon green, neon pink, neon orange
+        Color[] colors = {
+                new Color(255, 255, 102), // Neon Yellow
+                new Color(102, 255, 102), // Neon Green
+                new Color(255, 102, 255), // Neon Pink
+                new Color(255, 178, 102) // Neon Orange
+        };
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
                 bricks[i][j] = new Brick(j * 60, i * 30 + 50, colors[i]);
@@ -41,12 +46,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Draw gradient background
-        Graphics2D g2d = (Graphics2D) g.create();
-        GradientPaint gp = new GradientPaint(0, 0, new Color(30, 30, 60), 0, getHeight(), new Color(80, 180, 220));
-        g2d.setPaint(gp);
-        g2d.fillRect(0, 0, getWidth(), getHeight());
-        g2d.dispose();
+    // Draw solid black background for high-contrast highlighter look
+    g.setColor(Color.BLACK);
+    g.fillRect(0, 0, getWidth(), getHeight());
 
         // Draw game objects
         paddle.draw(g);
